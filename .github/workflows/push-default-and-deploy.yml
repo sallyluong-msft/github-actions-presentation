@@ -68,7 +68,7 @@ jobs:
     needs: build-and-test
     environment:
       name: DEV
-      url: http://my-web-app-please-work-dev.azurewebsites.net/
+      url: http://actions-demo-app-dev.azurewebsites.net/
 
     steps:
       - name: Download artifact
@@ -96,7 +96,7 @@ jobs:
     needs: build-and-test
     environment:
       name: STAGING
-      url: http://my-web-app-please-work-staging.azurewebsites.net/
+      url: http://actions-demo-app-staging.azurewebsites.net/
 
     steps:
       - name: Download artifact
@@ -126,7 +126,7 @@ jobs:
       - deploy-to-staging
     environment:
       name: PROD
-      url: http://my-web-app-please-work-prod.azurewebsites.net/
+      url: http://actions-demo-app-prod.azurewebsites.net/
 
     steps:
       - name: Download artifact
