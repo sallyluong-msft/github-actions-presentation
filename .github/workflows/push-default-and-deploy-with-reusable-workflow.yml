@@ -28,10 +28,10 @@ jobs:
 
   deploy-to-dev:
     needs: build-and-test
-    uses: devopselvis/my-github-actions-presentation/.github/workflows/deploy-to-environment-reusable.yml@main
+    uses: sallyluong-msft/github-actions-presentation/.github/workflows/deploy-to-environment-reusable.yml@main
     with:
       environment-name: "DEV"
-      environment-url: "http://my-web-app-please-work-dev.azurewebsites.net/"
+      environment-url: "http://actions-demo-app-dev.azurewebsites.net/"
       artifact-name: "myapp"
       web-app-name: ${{ vars.WEB_APP_NAME }}
       slot-name: "dev"
@@ -39,10 +39,10 @@ jobs:
 
   deploy-to-staging:
     needs: build-and-test
-    uses: devopselvis/my-github-actions-presentation/.github/workflows/deploy-to-environment-reusable.yml@main
+    uses: sallyluong-msft/github-actions-presentation/.github/workflows/deploy-to-environment-reusable.yml@main
     with:
       environment-name: "STAGING"
-      environment-url: "http://my-web-app-please-work-staging.azurewebsites.net/"
+      environment-url: "http://actions-demo-app-staging.azurewebsites.net/"
       artifact-name: "myapp"
       web-app-name: ${{ vars.WEB_APP_NAME }}
       slot-name: "staging"
@@ -52,10 +52,10 @@ jobs:
     needs:
       - deploy-to-staging
       - deploy-to-dev
-    uses: devopselvis/my-github-actions-presentation/.github/workflows/deploy-to-environment-reusable.yml@main
+    uses: sallyluong-msft/github-actions-presentation/.github/workflows/deploy-to-environment-reusable.yml@main
     with:
       environment-name: "PROD"
-      environment-url: "http://my-web-app-please-work-prod.azurewebsites.net/"
+      environment-url: "http://actions-demo-app-prod.azurewebsites.net/"
       artifact-name: "myapp"
       web-app-name: ${{ vars.WEB_APP_NAME }}
       slot-name: "prod"
